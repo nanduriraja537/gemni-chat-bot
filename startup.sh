@@ -1,5 +1,7 @@
-#!/bin/bash
-# startup.sh
 python -m pip install --upgrade pip
 pip install -r requirements.txt
-streamlit run gemni-read-dataset.py --server.port ${PORT:-8501} --server.enableCORS false
+
+# Use the PORT environment variable, default to 8000 if not set
+PORT=${PORT:-8000}
+
+streamlit run app.py --server.port $PORT --server.enableCORS false
